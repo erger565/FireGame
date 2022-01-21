@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json.schemastore.org/package#",
+  "name": "friendlyfire",
+  "version": "2.5.1-pre",
+  "description": "Explore the world of “Friendly Fire” and meet all its inhabitants in a quest to save the world from an unknown destiny.",
+  "homepage": "https://www.friendlyfiregame.com/",
+  "author": "The Cat Hive Developers",
+  "maintainers": [],
+  "keywords": [
+    "game",
+    "2d",
+    "browser",
+    "electron",
+    "platformer",
+    "metroidvania",
+    "pixelart"
+  ],
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/friendlyfiregame/friendlyfiregame"
+  },
+  "main": ".webpack/main",
+  "scripts": {
+    "clean": "rimraf lib dist out",
+    "markdownlint": "markdownlint -c ./.markdownlint.json -i node_modules/ -i dist/ -i out/ .",
+    "htmlhint": "htmlhint ./index.html",
+    "eslint": "eslint --ext .ts ./src/",
+    "lint": "npm run -s markdownlint && npm run -s htmlhint && npm run -s eslint",
+    "check": "jest",
+    "cspell": "cspell '**/*'",
+    "coverage": "jest --coverage",
+    "test": "npm run -s cspell && npm run -s lint && npm run -s check",
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "prepare": "npm run -s clean && npm run -s compile",
+    "dist": "webpack",
+    "start": "webpack-dev-server -d",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "config": {
+    "forge": "electron-forge.config.js"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "6.0.0-beta.54",
+    "@electron-forge/maker-deb": "6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.54",
+    "@electron-forge/maker-zip": "6.0.0-beta.54",
+    "@electron-forge/plugin-webpack": "6.0.0-beta.54",
+    "@jest-runner/electron": "3.0.1",
+    "@types/jest": "26.0.20",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "copy-webpack-plugin": "6.1.0",
+    "cspell": "5.14.0",
+    "electron": "16.0.5",
+    "eslint": "^8.6.0",
+    "generate-json-webpack-plugin": "^1.0.0",
+    "git-revision-webpack-plugin": "^3.0.6",
+    "htmlhint": "^1.1.0",
+    "jest": "26.6.3",
+    "jest-extended": "0.11.5",
+    "jest-sonar-reporter": "^2.0.0",
+    "markdownlint": "^0.25.0",
+    "markdownlint-cli": "^0.30.0",
+    "rimraf": "3.0.2",
+    "source-map-loader": "1.1.2",
+    "steal": "2.2.4",
+    "typescript": "^4.5.4",
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.2"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "tslib": "^2.3.1"
+  }
+}
